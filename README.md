@@ -1,0 +1,6 @@
+# Machine learning model for network anomaly detection
+
+In the era of widespread digitalization, ensuring effective cybersecurity has become one of the greatest challenges. The dynamic growth of network services generates massive volumes of data in real time. Such a large amount of data requires an automated system for detecting network anomalies, where a key component is a machine learning model.
+The main objective of this project is to develop a model for both binary and multiclass classification. The implementation of this task will be based on the analysis of a large dataset, in which the system will classify events in terms of the presence of anomalies. The research process will employ advanced machine learning methods, with particular emphasis on various outlier detection techniques. This approach will enable the identification not only of known threats but also of unusual deviations from the norm (schematically illustrated in Figure 1), which often accompany new, previously unidentified types of cyberattacks.
+
+![anomaly chart ](hassan_anomalychart.png)

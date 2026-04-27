@@ -1,0 +1,40 @@
+=================================================================
+             BENCHMARK MODEL REPORT (R)          
+             Network Traffic Classification (DDoS / Benign)       
+=================================================================
+
+[ INPUT DATA AND PREPROCESSING ]
+- Data source: CICIDS2017 dataset (8 files .csv/.pcap_ISCX)
+- Initial size: 2,830,743 observations
+- Sample size for training/testing: 50,000 observations
+- Dataset split: 70% Training (35,001) / 30% Testing (14,999)
+- Cleaning operations:
+  * Replaced missing (NA) and infinite (Inf) values with zeros.
+  * Removed near-zero variance features (nearZeroVar).
+  * Dropped 25 columns with correlation > 0.90 to avoid multicollinearity.
+  * Removed 883 influential observations (Cook’s Distance).
+
+[ MODEL AND FEATURE SELECTION ]
+- Algorithm type: Logistic Regression (Binomial GLM)
+- Selection criterion: AIC (Akaike Information Criterion)
+- Search direction: Stepwise (both directions)
+- Final feature set:
+ [1] "Bwd.Packet.Length.Std"   "Avg.Fwd.Segment.Size"    "Init_Win_bytes_backward" "Subflow.Bwd.Packets"    
+ [5] "PSH.Flag.Count"          "Packet.Length.Variance"  "Destination.Port"        "min_seg_size_forward"   
+ [9] "Fwd.IAT.Std"             "Down.Up.Ratio"           "ACK.Flag.Count"          "URG.Flag.Count"         
+[13] "Bwd.Packet.Length.Min"   "Flow.IAT.Std"            "Init_Win_bytes_forward"  "Fwd.Packet.Length.Std"  
+[17] "Flow.Packets.s"          "Active.Max"  
+
+[ EVALUATION RESULTS ON TEST SET ]
+- Decision threshold: 0.5
+- Precision: 0.9220
+- Recall:    0.9017
+- F1-Score:  0.9117
+
+[ CONFUSION MATRIX ]
+                             | Prediction (Benign: 0) | Prediction (Attack: 1)
+-----------------------------|------------------------|-----------------------
+Actual (Benign: 0)           | 11825                  | 225
+Actual (Attack: 1)           | 290                    | 2659
+
+=================================================================
